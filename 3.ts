@@ -18,6 +18,7 @@ function getSubStringList(s: string): string[] {
     if (sLen === 1) {
         return [s];
     }
+    let a = '';
     for (let i = 0; i < s.length; i++) {
         for (let j = i + 1; j <= s.length; j++) {
             result.push(s.substring(i, j));
