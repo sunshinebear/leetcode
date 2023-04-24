@@ -18,13 +18,11 @@ function getSubStringList(s: string): string[] {
     if (sLen === 1) {
         return [s];
     }
-    const nextStr = s.substring(1);
-    const nextStrList = getSubStringList(nextStr);
-    const currentStrList = nextStrList.map((nextStr: string) => {
-        return s.charAt(0) + nextStr;
-    });
-    result.push(...currentStrList);
-    result.push(...nextStrList);
+    for (let i = 0; i < s.length; i++) {
+        for (let j = i + 1; j <= s.length; j++) {
+            result.push(s.substring(i, j));
+        }
+    }
     return result;
 }
 

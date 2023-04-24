@@ -10,20 +10,18 @@ function isValidStr(s) {
     }
     return true;
 }
-// 得到所有的连续子字符串
+// 得到所有的子字符串
 function getSubStringList(s) {
     var result = [];
     var sLen = s.length;
     if (sLen === 1) {
         return [s];
     }
-    var nextStr = s.substring(1);
-    var nextStrList = getSubStringList(nextStr);
-    var currentStrList = nextStrList.map(function (nextStr) {
-        return s.charAt(0) + nextStr;
-    });
-    result.push.apply(result, currentStrList);
-    result.push.apply(result, nextStrList);
+    for (var i = 0; i < s.length; i++) {
+        for (var j = i + 1; j <= s.length; j++) {
+            result.push(s.substring(i, j));
+        }
+    }
     return result;
 }
 function lengthOfLongestSubstring(s) {
@@ -35,6 +33,7 @@ function lengthOfLongestSubstring(s) {
         }
     });
     return result;
-}
-;
-console.log(lengthOfLongestSubstring('pwwkew'));
+};
+
+// console.log(lengthOfLongestSubstring('au'));
+console.log('sss')
